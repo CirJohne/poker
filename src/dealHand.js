@@ -1,19 +1,18 @@
 var playerHand = [];
 var computerHand = [];
-var gameDeck = [];
 
+//Pick a random card from deck and give to
+function dealCard(hand){
+        for ( var i = hand.length; i<5; i++){
+                deckPos = Math.floor((Math.random() * deck.length) + 1);
+                hand.push(deck[deckPos]);
+                deck.splice(deckPos,1);
+        };
 
-/**
- * Randomize array element order in-place.
- */
-function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
-}
-gameDeck = shuffleArray(deck);
-console.log(gameDeck);
+};
+dealCard(playerHand);
+console.log(playerHand);
+console.log(deck);
+dealCard(computerHand);
+console.log(computerHand);
+console.log(deck);
