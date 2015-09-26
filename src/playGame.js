@@ -1,13 +1,15 @@
 function playGame(){
     dealCard(playerHand);
-    console.log("Player "+playerHand);
+    console.log("Players hand: "+playerHand);
     dealCard(computerHand);
-    console.log("Computer " + computerHand);
+ for(var i = 1; i<4; i++){
     askPlayer();
-    console.log("Player after throw cards "+playerHand);
+    computerChangeCards();
     dealCard(playerHand);
-    console.log("player new cards dealt "+ playerHand);
-
+    dealCard(computerHand);
+    console.log("Players hand after "+ i + " round:"+ playerHand);
+ };
+console.log("Computers hand: "+ computerHand);
 
 }
 
