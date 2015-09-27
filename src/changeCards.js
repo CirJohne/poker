@@ -3,7 +3,7 @@ function changeCards(hand,a,b,c,d,e){
     for (var i = removePos.length -1; i>=0; i--){
             if(removePos[i]!==""){
                 hand.splice(removePos[i],1);
-                removeCardFromTable();
+                removeCardFromTable(hand[i].id);
                                             };};};
 
 function computerChangeCards(){
@@ -13,7 +13,7 @@ function computerChangeCards(){
         while(computerThrownCards<amountCards){
                     var posToThrow = Math.floor(Math.random() * computerHand.length);
                     computerHand.splice(posToThrow,1);
-                    removeCardFromTable();
+                    removeCardFromTable(computerHand[posToThrow].id);
                     computerThrownCards = computerThrownCards +1;
         };
 };

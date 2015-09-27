@@ -1,8 +1,8 @@
-function addCardToTable(id,src){
+function addCardToTable(hand,id,src){
     var img = document.createElement("img");
         img.src =src;
         img.id =id;
-        document.getElementById("table").appendChild(img);
+        document.getElementById(hand).appendChild(img);
 
 };
 

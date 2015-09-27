@@ -15,9 +15,9 @@
 //
 // playGame();
 function playGame(){
-    dealCard(playerHand);
+    dealCard(playerHand,"playerHand");
     console.log("Players hand: "+playerHand);
-    dealCard(computerHand);
+    dealCard(computerHand,"computerHand");
 
     askPlayer();
     computerChangeCards();
