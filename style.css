@@ -1,0 +1,12 @@
+body{background-color: lightblue}
+/*#table{border-style: solid;
+            border-width: thick;
+            height: 300px;
+            width: 60%;
+            }*/
+#table{
+                border-radius: 100px;
+                background: #096B32;
+                padding: 20px;
+                width: 60%;
+                height: 300px;}
