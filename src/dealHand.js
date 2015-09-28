@@ -8,8 +8,5 @@ function dealCard(hand,divId){
                 hand.push(deck[deckPos]);
                 addCardToTable(divId,deck[deckPos].id,deck[deckPos].src);
                 deck.splice(deckPos,1);
-
-
         };
-
 };

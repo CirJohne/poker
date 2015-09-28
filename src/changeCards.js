@@ -1,11 +1,16 @@
-function changeCards(hand,a,b,c,d,e){
-    removePos = [a,b,c,d,e]
-    for (var i = removePos.length -1; i>=0; i--){
-            if(removePos[i]!==""){
-                hand.splice(removePos[i],1);
-                removeCardFromTable(hand[i].id);
-                dealCard(playerHand,"playerHand");
-                                            };};};
+function changeCards(hand,cardsToChange){
+        var removeId=cardsToChange;
+        console.log(removeId);
+         for (var i = removeId.length -1; i>=0; i--){
+            console.log(hand);
+            var pos = hand.map(function(e) { return e.id; }).indexOf(removeId[i]);
+            console.log(pos);
+            hand.splice(pos,1);
+            console.log(hand);
+            removeCardFromTable(removeId[i]);
+         };
+        setTimeout(function(){dealCard(playerHand,"playerHand")}, 10)
+};
 
 function computerChangeCards(){
     var amountCards = Math.floor((Math.random() * 6));
@@ -16,18 +21,18 @@ function computerChangeCards(){
                     computerHand.splice(posToThrow,1);
                     removeCardFromTable(computerHand[posToThrow].id);
                     computerThrownCards = computerThrownCards +1;
-                    dealCard(computerHand,"computerHand");
-        };
+setTimeout(function(){dealCard(computerHand,"computerHand")}, 10)        };
 };
 
-
-function askPlayer(){
-        var inputInt = [];
-        inputInt = prompt("Throw what pos(0-4)?");
-        var a = inputInt.charAt(0);
-        var b = inputInt.charAt(1);
-        var c = inputInt.charAt(2);
-        var d = inputInt.charAt(3);
-        var e = inputInt.charAt(4);
-        changeCards(playerHand,a,b,c,d,e);
+function addChangeButton(){
+        var btn = document.createElement("BUTTON");
+        var t = document.createTextNode("Change cards");
+        btn.id = "changeButtonID";
+        btn.onclick = function(){changeCards(playerHand,cardsToChange),cardsToChange = [];};
+        btn.appendChild(t);
+        document.getElementById("changeButton").appendChild(btn);
 };
+// var para = document.createElement("button");
+//   var t = document.createTextNode("This is a paragraph.");
+//   para.appendChild(t);
+//   document.getElementById("myDIV").appendChild(para);

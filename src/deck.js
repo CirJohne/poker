@@ -6,7 +6,8 @@
 // "queenhearts","kinghearts","acehearts","2spades","3spades","4spades","5spades",
 // "6spades","7spades","8spades","9spades","10spades","knightspades","queenspades",
 // "kingspades","acespades"];
-var deck = [{type: "clubs", number: "ace", src: "img/clubs/aceClubs.jpg", id: "aceClubs"},
+var deck = [
+{type: "clubs", number: "ace", src: "img/clubs/aceClubs.jpg", id: "aceClubs"},
 {type: "clubs", number: "two", src: "img/clubs/twoClubs.jpg", id: "twoClubs"},
 {type: "clubs", number: "three", src: "img/clubs/threeClubs.jpg", id: "threeClubs"},
 {type: "clubs", number: "four", src: "img/clubs/fourClubs.jpg", id: "fourClubs"},
@@ -19,7 +20,7 @@ var deck = [{type: "clubs", number: "ace", src: "img/clubs/aceClubs.jpg", id: "a
 {type: "clubs", number: "jack", src: "img/clubs/jackClubs.jpg", id: "jackClubs"},
 {type: "clubs", number: "queen", src: "img/clubs/queenClubs.jpg", id: "queenClubs"},
 {type: "clubs", number: "king", src: "img/clubs/kingClubs.jpg", id: "kingClubs"},
-{type: "diamonds", number: "ace", src: "img/diamonds/ace.jpg", id: "aceDiamonds"},
+{type: "diamonds", number: "ace", src: "img/diamonds/aceDiamonds.jpg", id: "aceDiamonds"},
 {type: "diamonds", number: "two", src: "img/diamonds/twoDiamonds.jpg", id: "twoDiamonds"},
 {type: "diamonds", number: "three", src: "img/diamonds/threeDiamonds.jpg", id: "threeDiamonds"},
 {type: "diamonds", number: "four", src: "img/diamonds/fourDiamonds.jpg", id: "fourDiamonds"},
@@ -32,7 +33,4 @@ var deck = [{type: "clubs", number: "ace", src: "img/clubs/aceClubs.jpg", id: "a
 {type: "diamonds", number: "jack", src: "img/diamonds/jackDiamonds.jpg", id: "jackDiamonds"},
 {type: "diamonds", number: "queen", src: "img/diamonds/queenDiamonds.jpg", id: "queenDiamonds"},
 {type: "diamonds", number: "king", src: "img/diamonds/kingDiamonds.jpg", id: "kingDiamonds"},
-
-
-
 ];

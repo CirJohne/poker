@@ -8,17 +8,21 @@ body{background-color: lightblue}
                 border-radius: 100px;
                 background: #096B32;
                 padding: 20px;
-                width: 75%;
+                width: 80%;
                 height: 300px;}
 
-#playerHand{border-style:solid;
+#playerHand{
                         float:left;
                         margin-left: 50px;
                         margin-top: 50px;
                         width:42%}
-#computerHand{border-style:solid;
+#computerHand{
                         float:right;
                         margin-right:50px;
                         margin-top: 50px;
-
                         width:42%}
+
+#changeButton{margin-top: 175px;
+                        width: 20%;
+                        height: 10%;}
+.card{padding: 2px;}
