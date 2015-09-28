@@ -4,6 +4,7 @@ function changeCards(hand,a,b,c,d,e){
             if(removePos[i]!==""){
                 hand.splice(removePos[i],1);
                 removeCardFromTable(hand[i].id);
+                dealCard(playerHand,"playerHand");
                                             };};};
 
 function computerChangeCards(){
@@ -15,6 +16,7 @@ function computerChangeCards(){
                     computerHand.splice(posToThrow,1);
                     removeCardFromTable(computerHand[posToThrow].id);
                     computerThrownCards = computerThrownCards +1;
+                    dealCard(computerHand,"computerHand");
         };
 };
 
