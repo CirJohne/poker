@@ -1,3 +1,4 @@
+//At the end of the game this function reveals the cards on the computer hand by changing image src. It removes all the elements with class computerCard
 function revealCards(){
     document.getElementsByClassName("computerCard").remove();
     for (var i = computerHand.length-1; i>=0;i--){
@@ -6,7 +7,7 @@ function revealCards(){
 
 };
 
-
+// This is something I stole to be able to remove all elements by class
 Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
 }
