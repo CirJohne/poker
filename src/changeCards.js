@@ -1,3 +1,4 @@
+// This array contains the cards that should be changed
 var cardsToChange= [];
 //Looks into cardsToChange to know what cards to throw away. Then calls for dealCard to refill hand.
 function changeCards(hand,cardsToChange){
