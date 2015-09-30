@@ -19,32 +19,39 @@ function removeCardFromTable(id){
 
 };
 
-function checkCardForChange(c,img){
-    console.log(img.src);
+function checkCardForChange(id,img){
+    console.log(img);
     // console.log(img);
-    var x = document.getElementById(c).getAttribute("id");
-    var y = document.getElementById(c).getAttribute("src");
-    // console.log(x);
+    var x = document.getElementById(id).getAttribute("id");
+    var y = document.getElementById(id).getAttribute("src");
+    console.log(x);
     // console.log(y);
 
     if(y=="img/back.jpg"){
         console.log("img back");
-        console.log(playerHand);
+        console.log(x);
     var image = setImage(x);
     console.log(image);
         img.src = image;
-        var temp = cardsToChange.indexOf(img.c);
+        var temp = cardsToChange.indexOf(img.id);
         cardsToChange.splice(temp,1);
     }
-    else {cardsToChange.push(img.c); img.src = "img/back.jpg"};
+    else {cardsToChange.push(img.id); img.src = "img/back.jpg"};
     console.log(cardsToChange);
 };
 
 function setImage(x){
-    for(i = 0; i = playerHand.length-1;i++){
+
+    for(i = playerHand.length -1; i >=0;i--){
+        console.log(playerHand.length);
     var a = playerHand[i].id;
+    console.log(a);
     if(a===x){
+        console.log("found x");
+        console.log(playerHand[i]);
         var image = playerHand[i].src;
+        console.log(image);
+        return image;
     }
-    return image;
+
 };};
