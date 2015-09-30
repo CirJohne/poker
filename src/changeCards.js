@@ -5,34 +5,32 @@ function changeCards(hand,cardsToChange){
             hand.splice(pos,1);
             removeCardFromTable(removeId[i]);
          };
-        setTimeout(function(){dealCard(playerHand,"playerHand")}, 10)
+         dealCard(playerHand,"playerHand");
+        // setTimeout(function(){dealCard(playerHand,"playerHand")}, 10)
 };
 
 function computerChangeCards(){
     var amountCards = Math.floor((Math.random() * 6));
-        // alert("Computer changed "+ amountCards+ " cards.");
         var computerThrownCards = 0;
         while(computerThrownCards<amountCards){
                     var posToThrow = Math.floor(Math.random() * computerHand.length);
-console.log(computerHand[posToThrow].id);
                     removeCardFromTable(computerHand[posToThrow].id);
                     computerHand.splice(posToThrow,1);
-                    console.log(computerHand);
                     computerThrownCards = computerThrownCards +1;
     };
-setTimeout(function(){dealCard(computerHand,"computerHand")}, 3010)
+    dealCard(computerHand,"computerHand");
+// setTimeout(function(){dealCard(computerHand,"computerHand")},10)
 };
 
 function addChangeButton(){
         var btn = document.createElement("BUTTON");
         var t = document.createTextNode("Change cards");
         btn.id = "changeButtonID";
-        btn.onclick = function(){changeCards(playerHand,cardsToChange),cardsToChange = [],
-            computerChangeCards(),rounds++, playGame()};
+        btn.onclick = function(){changeCards(playerHand,cardsToChange);cardsToChange = [];
+            computerChangeCards();rounds++; playGame()};
         btn.appendChild(t);
         document.getElementById("changeButton").appendChild(btn);
     };
-
 
 function removeButton(){
     var parent = document.getElementById("table");

@@ -8,7 +8,8 @@ function dealCard(hand,divId){
                 hand.push(deck[deckPos]);
                 if(divId==="playerHand"){
                 addCardToTable(divId,deck[deckPos].id,deck[deckPos].src);}
-                else{addCardToTable(divId,deck[deckPos].id,"img/back.jpg")};
+                else{addCardToTable(divId,deck[deckPos].id,"img/back.jpg");};
                 deck.splice(deckPos,1);
+
         };
 };

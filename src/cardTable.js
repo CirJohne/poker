@@ -1,11 +1,11 @@
 var cardsToChange= [];
 function addCardToTable(hand,id,src){
     var img = document.createElement("img");
-    // console.log(src);
         img.src =src;
         img.id = id;
-        img.className = "card";
+        img.className = "computerCard";
         if(hand==="playerHand"){
+            img.className = "card";
         img.onclick = function(){cardsToChange.push(img.id), img.src = "img/back.jpg"};};
         document.getElementById(hand).appendChild(img);
 
