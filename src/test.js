@@ -1,3 +1,4 @@
+//this is the deck of cards
 var deck = [
 {type: "clubs", number: "ace", src: "img/clubs/aceClubs.jpg", id: "aceClubs"},
 {type: "clubs", number: "two", src: "img/clubs/twoClubs.jpg", id: "twoClubs"},

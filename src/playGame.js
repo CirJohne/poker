@@ -5,7 +5,7 @@ function startGame(){alert("Welcome to a friendly game of Poker!\nYou may change
 function playGame(){
     dealCard(computerHand,"computerHand");
     dealCard(playerHand,"playerHand");
-if (rounds>2){
+        if (rounds>2){
         removeButton();
         revealCards();}
 };

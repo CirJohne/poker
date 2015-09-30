@@ -1,3 +1,5 @@
+var cardsToChange= [];
+//Looks into cardsToChange to know what cards to throw away. Then calls for dealCard to refill hand.
 function changeCards(hand,cardsToChange){
         var removeId=cardsToChange;
          for (var i = removeId.length -1; i>=0; i--){
@@ -6,19 +8,19 @@ function changeCards(hand,cardsToChange){
             removeCardFromTable(removeId[i]);
          };
          dealCard(playerHand,"playerHand");
-        // setTimeout(function(){dealCard(playerHand,"playerHand")}, 10)
 };
-
+// This is how the AI changes cards. A random number of cards and then random spots. Pretty darn dumb AI.
 function computerChangeCards(){
     var amountCards = Math.floor((Math.random() * 6));
-        var computerThrownCards = 0;
+    var computerThrownCards = 0;
         while(computerThrownCards<amountCards){
                     var posToThrow = Math.floor(Math.random() * computerHand.length);
                     removeCardFromTable(computerHand[posToThrow].id);
                     computerHand.splice(posToThrow,1);
                     computerThrownCards = computerThrownCards +1;
-    };
+                };
     dealCard(computerHand,"computerHand");
+
 // setTimeout(function(){dealCard(computerHand,"computerHand")},10)
 };
 
