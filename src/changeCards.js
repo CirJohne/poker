@@ -22,11 +22,11 @@ function computerChangeCards(){
                     computerHand.splice(posToThrow,1);
                     computerThrownCards = computerThrownCards +1;
                 };
-                for(var i=thrownCards.length-1;i>=0;i--){
+            setTimeout(function(){for(var i=thrownCards.length-1;i>=0;i--){
             removeCardFromTable(thrownCards[i]);
-        };
+        };},1000);
 
-    dealCard(computerHand,"computerHand");
+    setTimeout(function(){dealCard(computerHand,"computerHand")},1000);
 
 // setTimeout(function(){dealCard(computerHand,"computerHand")},10)
 };
