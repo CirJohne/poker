@@ -14,12 +14,18 @@ function changeCards(hand,cardsToChange){
 function computerChangeCards(){
     var amountCards = Math.floor((Math.random() * 6));
     var computerThrownCards = 0;
+    var thrownCards = [];
         while(computerThrownCards<amountCards){
                     var posToThrow = Math.floor(Math.random() * computerHand.length);
-                    removeCardFromTable(computerHand[posToThrow].id);
+                    thrownCards.push(computerHand[posToThrow].id);
+                    addBorder(computerHand[posToThrow].id);
                     computerHand.splice(posToThrow,1);
                     computerThrownCards = computerThrownCards +1;
                 };
+                for(var i=thrownCards.length-1;i>=0;i--){
+            removeCardFromTable(thrownCards[i]);
+        };
+
     dealCard(computerHand,"computerHand");
 
 // setTimeout(function(){dealCard(computerHand,"computerHand")},10)

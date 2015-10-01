@@ -14,6 +14,15 @@ function removeCardFromTable(id){
         var img = document.getElementById(id);
         img.parentNode.removeChild(img);
 };
+
+
+// Add border to card thrown by computer
+function addBorder(id){
+    var img = document.getElementById(id);
+    img.style.border = "thin solid red";
+}
+
+
 // Allows player to click on image of card to check or uncheck it for changing. It pushes or splices the card from cardsToChange which is used ny changeCards
 function checkCardForChange(id,img){
     var x = document.getElementById(id).getAttribute("id");
