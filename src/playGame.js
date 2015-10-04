@@ -1,6 +1,6 @@
 var rounds = 0;
 function startGame(){
-    // alert("Welcome to a friendly game of Poker!\nYou may change cards three times.\nNo winner is declared,hence friendly!");
+     alert("Welcome to a friendly game of Poker!\nYou may change cards three times.\nClick on the cards you'd like to change.\nNo winner is declared,hence friendly!");
  playGame();};
 function playGame(){
     console.log(rounds);
