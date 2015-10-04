@@ -7,23 +7,55 @@ var testHand = [
     {type: "hearts", number: 13, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
+// Fire it off!
+checkResult(testHand);
+
+
 //Check for RoyalStraightFlush
 function royalStraightFlush(hand){
     var type = sameType(hand);
     console.log(type);
     var x = hand[0].number+hand[1].number+hand[2].number+hand[3].number+hand[4].number;
     if(type===true && x===60){
+        hand.splice(0,5);
+        console.log(hand);
         return "RoyalStraightFlush";
     }
 };
 
+//Check for StraightFlush
+
+//Check for FourOfAKind
+
+//Check for FullHouse
+
+//Check for Flush
+
+//Check for Straight
+
+//Check for ThreeOfAKind
+
+//Check for TwoPairs
+
+//Check for OnePair
+
+
+
+
+
+
+
+
+
 // Wrapper for checking all results
 function checkResult(hand){
+    console.log(hand);
     var handIs =royalStraightFlush(hand);
 
 console.log(handIs);
     var score = compareScore(handIs);
     console.log(score);
+    console.log(hand);
     };
 
 // These functions are used for various reasons
@@ -49,5 +81,3 @@ function compareScore(handIs){
         }
     };
 };
-
-checkResult(testHand);
