@@ -1,15 +1,15 @@
 // GÖR SÅ HAND ALLTID ÄR SORTED, TA BORT tempHand
 var testHand = [
-    {type: "hearts", number: 2, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
-    {type: "hearts", number: 2, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
-    {type: "hearts", number: 3, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 2, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-    {type: "heart", number: 2, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+    {type: "hearts", number: 7, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
+    {type: "hearts", number: 8, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
+    {type: "hearts", number: 5, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
+    {type: "hearts", number: 6, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "clubs", number: 4, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
 // Fire it off!
-// checkResult(testHand);
-numberPiles(testHand);
+checkResult(testHand);
+// numberPiles(testHand);
 
 //Check for RoyalStraightFlush
 function royalStraightFlush(hand){
@@ -24,8 +24,7 @@ function royalStraightFlush(hand){
 //Check for StraightFlush
 function straightFlush(hand){
     var type = sameType(hand);
-    var tempHand = hand.sort(sortNumber);
-    var isStraightVar = isStraight(tempHand,hand);
+    var isStraightVar = isStraight(hand);
 // MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
     if(type===true && isStraightVar===true){
             emptyHand(hand);
@@ -45,8 +44,7 @@ function flush(hand){
 
 //Check for Straight
 function straight(hand){
-    var tempHand = hand.sort(sortNumber);
-     var isStraightVar = isStraight(tempHand,hand);
+     var isStraightVar = isStraight(hand);
      console.log(isStraightVar);
 // MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
     if(isStraightVar===true){
@@ -111,7 +109,8 @@ function checkAllCombos(hand){
 };
 
 function checkResult(hand){
-    var handIs = checkAllCombos(hand);
+    var sortedHand = hand.sort(sortNumber)
+    var handIs = checkAllCombos(sortedHand);
 console.log(handIs);
     var score = compareScore(handIs);
     console.log(score);
@@ -131,7 +130,7 @@ function sameType(hand){
    return temp;};
 
 // See if cards are valid for a straight
-function isStraight(tempHand,hand){
+function isStraight(hand){
     var temp = true;
     for(var i = 0; i<=3;i++){
         if(hand[i].number-hand[i+1].number!==-1){
