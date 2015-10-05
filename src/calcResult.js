@@ -4,7 +4,7 @@ var testHand = [
     {type: "hearts", number: 11, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
     {type: "hearts", number: 12, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
     {type: "hearts", number: 13, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-    {type: "clubs", number: 9, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+    {type: "heart", number: 9, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
 // Fire it off!
@@ -25,9 +25,9 @@ function royalStraightFlush(hand){
 function straightFlush(hand){
     var type = sameType(hand);
     var tempHand = hand.sort(sortNumber);
-    var isStraight = straight(tempHand,hand);
+    var isStraightVar = isStraight(tempHand,hand);
 // MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
-    if(type===true && isStraight===true){
+    if(type===true && isStraightVar===true){
             emptyHand(hand);
                 return "StraightFlush";
     }
@@ -40,8 +40,6 @@ function straightFlush(hand){
 //Check for Flush
 function flush(hand){
     var type = sameType(hand);
-    // var tempHand = hand.sort(sortNumber);
-    // var isStraight = straight(tempHand,hand);
 // MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
     if(type===true){
             emptyHand(hand);
@@ -50,6 +48,16 @@ function flush(hand){
 };
 
 //Check for Straight
+function straight(hand){
+    var tempHand = hand.sort(sortNumber);
+     var isStraightVar = isStraight(tempHand,hand);
+     console.log(isStraightVar);
+// MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
+    if(isStraightVar===true){
+            emptyHand(hand);
+                return "Straight";
+    }
+};
 
 //Check for ThreeOfAKind
 
@@ -63,9 +71,14 @@ function checkAllCombos(hand){
 
     var temp = royalStraightFlush(hand);
     if(temp!==undefined){return temp};
+    console.log("not royal");
     temp= straightFlush(hand);
     if(temp!==undefined){return temp};
+    console.log("not straightFlush")
     temp= flush(hand);
+    if(temp!==undefined){return temp};
+    console.log("not Flush")
+    temp= straight(hand);
     if(temp!==undefined){return temp};
 };
 
@@ -88,8 +101,9 @@ function sameType(hand){
        break;
    }}
    return temp;};
+
 // See if cards are valid for a straight
-function straight(tempHand,hand){
+function isStraight(tempHand,hand){
     var temp = true;
     for(var i = 0; i<=3;i++){
         if(hand[i].number-hand[i+1].number!==-1){
