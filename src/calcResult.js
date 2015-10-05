@@ -1,15 +1,15 @@
-
+// GÖR SÅ HAND ALLTID ÄR SORTED, TA BORT tempHand
 var testHand = [
-    {type: "hearts", number: 10, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
-    {type: "hearts", number: 11, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
-    {type: "hearts", number: 12, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 13, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-    {type: "heart", number: 9, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+    {type: "hearts", number: 2, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
+    {type: "hearts", number: 2, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
+    {type: "hearts", number: 3, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
+    {type: "hearts", number: 2, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "heart", number: 2, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
 // Fire it off!
-checkResult(testHand);
-
+// checkResult(testHand);
+numberPiles(testHand);
 
 //Check for RoyalStraightFlush
 function royalStraightFlush(hand){
@@ -33,10 +33,6 @@ function straightFlush(hand){
     }
 };
 
-//Check for FourOfAKind
-
-//Check for FullHouse
-
 //Check for Flush
 function flush(hand){
     var type = sameType(hand);
@@ -58,7 +54,39 @@ function straight(hand){
                 return "Straight";
     }
 };
+//create arrays with cards by same type
+function numberPiles(hand){
+    var slot0 = [];
+    var slot1 = [];
+    var slot2 = [];
+    var slot3 = [];
+    var slot4 = [];
 
+    slot0.push(hand[0].number);
+    hand.splice(0,1);
+    for(var i = 0 ; i <= hand.length-1;i++){
+        if(slot0[0]===hand[i].number){
+            slot0.push(hand[i].number);
+            hand.splice([i],1);
+            i=i-1;
+            console.log(hand);
+        }
+        console.log(slot0);
+    };
+    // slot0.push(hand[0].number);
+    // for(var i = 1 ; i <= hand.length-1;i++){
+    //
+    //     if(hand[0].number===hand[i].number){
+    //         slot0.push(hand[i].number);
+    //     }
+    //     console.log(slot0);
+    // };
+
+
+};
+
+//Check for FourOfAKind
+//Check for FullHouse
 //Check for ThreeOfAKind
 
 //Check for TwoPairs
