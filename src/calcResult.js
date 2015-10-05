@@ -4,7 +4,7 @@ var testHand = [
     {type: "hearts", number: 11, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
     {type: "hearts", number: 12, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
     {type: "hearts", number: 13, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-    {type: "hearts", number: 9, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+    {type: "clubs", number: 9, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
 // Fire it off!
@@ -38,6 +38,16 @@ function straightFlush(hand){
 //Check for FullHouse
 
 //Check for Flush
+function flush(hand){
+    var type = sameType(hand);
+    // var tempHand = hand.sort(sortNumber);
+    // var isStraight = straight(tempHand,hand);
+// MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
+    if(type===true){
+            emptyHand(hand);
+                return "Flush";
+    }
+};
 
 //Check for Straight
 
@@ -54,6 +64,8 @@ function checkAllCombos(hand){
     var temp = royalStraightFlush(hand);
     if(temp!==undefined){return temp};
     temp= straightFlush(hand);
+    if(temp!==undefined){return temp};
+    temp= flush(hand);
     if(temp!==undefined){return temp};
 };
 
