@@ -3,7 +3,7 @@ var testHand = [
     {type: "hearts", number: 14, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
     {type: "hearts", number: 14, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
     {type: "hearts", number: 2, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 2, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "hearts", number: 5, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
     {type: "clubs", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
@@ -76,26 +76,26 @@ function threeOfAKind(hand){
     if(temp[0]===3 && temp[1]===1){
         emptyHand(hand);
         return "ThreeOfAKind"
-
     }
 };
 
 //Check for TwoPairs
 function twoPairs(hand){
-    console.log("enter twoPairs");
-    console.log(hand);
     var temp = numberPiles(hand);
-    console.log(temp);
     if(temp[0]===2 && temp[1]===2){
-        console.log("enter if");
         emptyHand(hand);
-        console.log(hand.length);
         return "TwoPairs"
-
     }
 };
 
 //Check for OnePair
+function onePair(hand){
+    var temp = numberPiles(hand);
+    if(temp[0]===2 && temp[1]===1){
+        emptyHand(hand);
+        return "OnePair"
+    }
+};
 
 
 //create arrays with cards by same type
@@ -156,6 +156,10 @@ function checkAllCombos(hand){
     temp = twoPairs(hand);
     if(temp!==undefined){return temp};
     console.log("not TwoPairs");
+
+    temp = onePair(hand);
+    if(temp!==undefined){return temp};
+    console.log("not OnePair");
 };
 
 function checkResult(hand){
