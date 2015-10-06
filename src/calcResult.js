@@ -3,8 +3,8 @@ var testHand = [
     {type: "hearts", number: 14, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
     {type: "hearts", number: 14, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
     {type: "hearts", number: 14, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 14, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-    {type: "clubs", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+    {type: "hearts", number: 3, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "hearts", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
 // Fire it off!
@@ -33,14 +33,24 @@ function straightFlush(hand){
 
 //Check for FourOfAKind
 function fourOfAKind(hand){
-    console.log("enter fourOfAKind");
     var temp = numberPiles(hand);
     console.log(temp);
     if(temp[0]===4){
+        emptyHand(hand);
+        return "FourOfAKind"
+    }
+};
+//Check for FullHouse
+function fullHouse(hand){
+    console.log("enter fullHouse");
+    console.log(hand);
+    var temp = numberPiles(hand);
+    console.log(temp);
+    if(temp[0]===3 && temp[1]===2){
         console.log("enter if");
         emptyHand(hand);
         console.log(hand.length);
-        return "FourOfAKind"
+        return "FullHouse"
 
     }
 };
@@ -66,8 +76,20 @@ function straight(hand){
     }
 };
 
-//Check for FullHouse
 //Check for ThreeOfAKind
+// function threeOfAKind(hand){
+//     console.log("enter fullHouse");
+//     console.log(hand);
+//     var temp = numberPiles(hand);
+//     console.log(temp);
+//     if(temp[0]===3 && temp[1]===2){
+//         console.log("enter if");
+//         emptyHand(hand);
+//         console.log(hand.length);
+//         return "FullHouse"
+//
+//     }
+// };
 
 //Check for TwoPairs
 
@@ -76,17 +98,20 @@ function straight(hand){
 
 //create arrays with cards by same type
 function numberPiles(hand){
+    var tempHand = hand.slice(0);
+    console.log("XX");
+    console.log(tempHand);
     var slot0 = [];
     var slot1 = [];
     var slot2 = [];
     var slot3 = [];
     var slot4 = [];
 
-    makePileBySlot(slot0,hand);
-    makePileBySlot(slot1,hand);
-    makePileBySlot(slot2,hand);
-    makePileBySlot(slot3,hand);
-    makePileBySlot(slot4,hand);
+    makePileBySlot(slot0,tempHand);
+    makePileBySlot(slot1,tempHand);
+    makePileBySlot(slot2,tempHand);
+    makePileBySlot(slot3,tempHand);
+    makePileBySlot(slot4,tempHand);
 
     var countPiles =[slot0.length,slot1.length,slot2.length,slot3.length,slot4.length,];
     console.log(countPiles.sort().reverse());
@@ -109,6 +134,10 @@ function checkAllCombos(hand){
     temp = fourOfAKind(hand);
     if(temp!==undefined){return temp};
     console.log("not FourOfAKind");
+
+    temp = fullHouse(hand);
+    if(temp!==undefined){return temp};
+    console.log("not FullHouse");
 
     temp = flush(hand);
     if(temp!==undefined){return temp};
@@ -182,6 +211,7 @@ function emptyHand(hand){
 
 //makePileBySlot looks at the first slot of the hand and then compars with rest of hand. If there's a card with same nummer it puts them in pile(own array)
 function makePileBySlot(slot,hand){
+    console.log(hand);
     if(hand.length!=0){
     slot.push(hand[0].number);
     hand.splice(0,1);
