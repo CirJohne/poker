@@ -6,14 +6,12 @@ function startGame(){
 
 
 function playGame(){
-    console.log(rounds);
 if(rounds<1){dealCard(computerHand,"computerHand");
     dealCard(playerHand,"playerHand");};
         if (rounds>2){
         removeButton();
         setTimeout(function(){revealCards();checkResult(computerHand);},1000);
         checkResult(playerHand);
-        console.log(computerHand);
 
 
     }

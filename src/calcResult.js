@@ -11,9 +11,6 @@
 
 //Check for RoyalStraightFlush
 function royalStraightFlush(hand){
-    console.log(hand);
-    console.log(hand[0].number);
-
     var type = sameType(hand);
     var x = hand[0].number+hand[1].number+hand[2].number+hand[3].number+hand[4].number;
     if(type===true && x===60){
@@ -116,7 +113,6 @@ function numberPiles(hand){
 
     var countPiles =[slot0.length,slot1.length,slot2.length,slot3.length,slot4.length,];
     return countPiles.sort().reverse();
-    // console.log(countPilesSorted);
 };
 
 
@@ -125,39 +121,30 @@ function checkAllCombos(hand){
 
     var temp = royalStraightFlush(hand);
     if(temp!==undefined){return temp};
-    console.log("not royal");
 
     temp = straightFlush(hand);
     if(temp!==undefined){return temp};
-    console.log("not straightFlush");
 
     temp = fourOfAKind(hand);
     if(temp!==undefined){return temp};
-    console.log("not FourOfAKind");
 
     temp = fullHouse(hand);
     if(temp!==undefined){return temp};
-    console.log("not FullHouse");
 
     temp = flush(hand);
     if(temp!==undefined){return temp};
-    console.log("not Flush")
 
     temp = straight(hand);
     if(temp!==undefined){return temp};
-    console.log("not Straight");
 
     temp = threeOfAKind(hand);
     if(temp!==undefined){return temp};
-    console.log("not ThreeOfAKind");
 
     temp = twoPairs(hand);
     if(temp!==undefined){return temp};
-    console.log("not TwoPairs");
 
     temp = onePair(hand);
     if(temp!==undefined){return temp};
-    console.log("not OnePair");
 };
 
 function checkResult(hand){
@@ -174,7 +161,6 @@ function checkResult(hand){
 function sameType(hand){
     var temp = true;
     for(var i = 0; i<=3;i++){
-        console.log(hand[i].type);
    if(hand[i].type!==hand[i+1].type){
               temp=false;
        return temp;
