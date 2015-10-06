@@ -1,9 +1,9 @@
 // GÖR SÅ HAND ALLTID ÄR SORTED, TA BORT tempHand
 var testHand = [
-    {type: "hearts", number: 4, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
+    {type: "hearts", number: 14, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
     {type: "hearts", number: 3, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
-    {type: "hearts", number: 4, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 3, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "hearts", number: 7, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
+    {type: "hearts", number: 2, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
     {type: "clubs", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
@@ -51,6 +51,9 @@ function straight(hand){
                 return "Straight";
     }
 };
+
+
+
 //create arrays with cards by same type
 function numberPiles(hand){
     var slot0 = [];
@@ -59,79 +62,12 @@ function numberPiles(hand){
     var slot3 = [];
     var slot4 = [];
 
-    slot0.push(hand[0].number);
-    hand.splice(0,1);
-    for(var i = 0 ; i <= hand.length-1;i++){
-        if(slot0[0]===hand[i].number){
-            slot0.push(hand[i].number);
-            hand.splice([i],1);
-            i=i-1;
-            console.log(hand);
-        }
-console.log("slot0");
-        console.log(slot0);
-    };
-    if(hand.length!=0){
-    slot1.push(hand[0].number);
-    console.log(slot1);
-    hand.splice(0,1);
-    for(var i = 0 ; i <= hand.length-1;i++){
-        if(slot1[0]===hand[i].number){
-            slot1.push(hand[i].number);
-            hand.splice([i],1);
-            i=i-1;
-            console.log(hand);
-        }
-        console.log("slot1");
+    makePileBySlot(slot0,hand);
+    makePileBySlot(slot1,hand);
+    makePileBySlot(slot2,hand);
+    makePileBySlot(slot3,hand);
+    makePileBySlot(slot4,hand);
 
-        console.log(slot1);
-    };}
-
-    if(hand.length!=0){
-    slot2.push(hand[0].number);
-    console.log(slot2);
-    hand.splice(0,1);
-    for(var i = 0 ; i <= hand.length-1;i++){
-        if(slot2[0]===hand[i].number){
-            slot2.push(hand[i].number);
-            hand.splice([i],1);
-            i=i-1;
-            console.log(hand);
-        }
-        console.log("slot2");
-
-        console.log(slot2);
-    };}
-
-    if(hand.length!=0){
-    slot3.push(hand[0].number);
-    hand.splice(0,1);
-    for(var i = 0 ; i <= hand.length-1;i++){
-        if(slot3[0]===hand[i].number){
-            slot3.push(hand[i].number);
-            hand.splice([i],1);
-            i=i-1;
-            console.log(hand);
-        }
-        console.log("slot3");
-
-        console.log(slot3);
-    };}
-
-    if(hand.length!=0){
-    slot4.push(hand[0].number);
-    hand.splice(0,1);
-    for(var i = 0 ; i <= hand.length-1;i++){
-        if(slot4[0]===hand[i].number){
-            slot4.push(hand[i].number);
-            hand.splice([i],1);
-            i=i-1;
-            console.log(hand);
-        }
-        console.log("slot4");
-
-        console.log(slot4);
-    };}
     var countPiles =[slot0.length,slot1.length,slot2.length,slot3.length,slot4.length,];
     console.log(countPiles.sort().reverse());
     // console.log(countPilesSorted);
@@ -225,3 +161,18 @@ function compareScore(handIs){
 function emptyHand(hand){
     hand.splice(0,5);
 };
+
+//makePileBySlot looks at the first slot of the hand and then compars with rest of hand. If there's a card with same nummer it puts them in pile(own array)
+function makePileBySlot(slot,hand){
+    if(hand.length!=0){
+    slot.push(hand[0].number);
+    hand.splice(0,1);
+    for(var i = 0 ; i <= hand.length-1;i++){
+        if(slot[0]===hand[i].number){
+            slot.push(hand[i].number);
+            hand.splice([i],1);
+            i=i-1;
+
+        }
+
+    };}};
