@@ -1,7 +1,7 @@
 // GÖR SÅ HAND ALLTID ÄR SORTED, TA BORT tempHand
 var testHand = [
     {type: "hearts", number: 14, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
-    {type: "hearts", number: 14, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
+    {type: "hearts", number: 7, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
     {type: "hearts", number: 2, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
     {type: "hearts", number: 5, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
     {type: "clubs", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
@@ -95,6 +95,7 @@ function onePair(hand){
         emptyHand(hand);
         return "OnePair"
     }
+    return "Nothing";
 };
 
 

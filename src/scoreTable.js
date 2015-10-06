@@ -7,6 +7,7 @@ var scoreTable = [
     {hand: "Straight", score:4},
     {hand: "ThreeOfAKind", score:3},
     {hand: "TwoPairs", score:2},
-    {hand: "OnePair", score:1}
+    {hand: "OnePair", score:1},
+    {hand: "Nothing", score:0}
 
 ];
