@@ -1,13 +1,12 @@
 // var testHand = [
-//     {type: "hearts", number: 13, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
-//     {type: "hearts", number: 9, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
+//     {type: "hearts", number: 3, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
+//     {type: "hearts", number: 10, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
 //     {type: "hearts", number: 11, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-//     {type: "hearts", number: 1, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-//     {type: "clubs", number: 12, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+//     {type: "hearts", number: 12, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+//     {type: "hearts", number: 14, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 // ];
-
-// Fire it off!
 // checkResult(testHand);
+
 
 //Check for RoyalStraightFlush
 function royalStraightFlush(hand){
@@ -96,7 +95,7 @@ function onePair(hand){
 };
 
 
-//create arrays with cards by same type
+//create arrays with cards by same number, used by fullHouse fourOfAKind threeOfAKind twoPairs onePair
 function numberPiles(hand){
     var tempHand = hand.slice(0);
     var slot0 = [];
@@ -114,7 +113,6 @@ function numberPiles(hand){
     var countPiles =[slot0.length,slot1.length,slot2.length,slot3.length,slot4.length,];
     return countPiles.sort().reverse();
 };
-
 
 // Wrapper for checking all results
 function checkAllCombos(hand){
