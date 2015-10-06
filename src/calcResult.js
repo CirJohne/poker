@@ -1,16 +1,19 @@
-var testHand = [
-    {type: "hearts", number: 14, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
-    {type: "hearts", number: 7, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
-    {type: "hearts", number: 2, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 5, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-    {type: "clubs", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
-];
+// var testHand = [
+//     {type: "hearts", number: 13, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
+//     {type: "hearts", number: 9, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
+//     {type: "hearts", number: 11, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
+//     {type: "hearts", number: 1, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+//     {type: "clubs", number: 12, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+// ];
 
 // Fire it off!
-checkResult(testHand);
+// checkResult(testHand);
 
 //Check for RoyalStraightFlush
 function royalStraightFlush(hand){
+    console.log(hand);
+    console.log(hand[0].number);
+
     var type = sameType(hand);
     var x = hand[0].number+hand[1].number+hand[2].number+hand[3].number+hand[4].number;
     if(type===true && x===60){
@@ -171,6 +174,7 @@ function checkResult(hand){
 function sameType(hand){
     var temp = true;
     for(var i = 0; i<=3;i++){
+        console.log(hand[i].type);
    if(hand[i].type!==hand[i+1].type){
               temp=false;
        return temp;
