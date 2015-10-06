@@ -1,4 +1,3 @@
-// GÖR SÅ HAND ALLTID ÄR SORTED, TA BORT tempHand
 var testHand = [
     {type: "hearts", number: 14, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
     {type: "hearts", number: 7, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
@@ -34,7 +33,6 @@ function straightFlush(hand){
 //Check for FourOfAKind
 function fourOfAKind(hand){
     var temp = numberPiles(hand);
-    console.log(temp);
     if(temp[0]===4){
         emptyHand(hand);
         return "FourOfAKind"
@@ -62,7 +60,6 @@ function flush(hand){
 //Check for Straight
 function straight(hand){
      var isStraightVar = isStraight(hand);
-     console.log(isStraightVar);
 // MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
     if(isStraightVar===true){
             emptyHand(hand);
@@ -102,8 +99,6 @@ function onePair(hand){
 //create arrays with cards by same type
 function numberPiles(hand){
     var tempHand = hand.slice(0);
-    console.log("XX");
-    console.log(tempHand);
     var slot0 = [];
     var slot1 = [];
     var slot2 = [];
@@ -117,7 +112,6 @@ function numberPiles(hand){
     makePileBySlot(slot4,tempHand);
 
     var countPiles =[slot0.length,slot1.length,slot2.length,slot3.length,slot4.length,];
-    console.log(countPiles.sort().reverse());
     return countPiles.sort().reverse();
     // console.log(countPilesSorted);
 };
@@ -226,7 +220,6 @@ function emptyHand(hand){
 
 //makePileBySlot looks at the first slot of the hand and then compars with rest of hand. If there's a card with same nummer it puts them in pile(own array)
 function makePileBySlot(slot,hand){
-    console.log(hand);
     if(hand.length!=0){
     slot.push(hand[0].number);
     hand.splice(0,1);
