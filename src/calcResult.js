@@ -1,15 +1,14 @@
 // GÖR SÅ HAND ALLTID ÄR SORTED, TA BORT tempHand
 var testHand = [
-    {type: "hearts", number: 7, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
-    {type: "hearts", number: 8, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
-    {type: "hearts", number: 5, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 6, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-    {type: "clubs", number: 4, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+    {type: "hearts", number: 4, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
+    {type: "hearts", number: 3, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
+    {type: "hearts", number: 4, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
+    {type: "hearts", number: 3, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "clubs", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
 // Fire it off!
 checkResult(testHand);
-// numberPiles(testHand);
 
 //Check for RoyalStraightFlush
 function royalStraightFlush(hand){
@@ -69,18 +68,73 @@ function numberPiles(hand){
             i=i-1;
             console.log(hand);
         }
+console.log("slot0");
         console.log(slot0);
     };
-    // slot0.push(hand[0].number);
-    // for(var i = 1 ; i <= hand.length-1;i++){
-    //
-    //     if(hand[0].number===hand[i].number){
-    //         slot0.push(hand[i].number);
-    //     }
-    //     console.log(slot0);
-    // };
+    if(hand.length!=0){
+    slot1.push(hand[0].number);
+    console.log(slot1);
+    hand.splice(0,1);
+    for(var i = 0 ; i <= hand.length-1;i++){
+        if(slot1[0]===hand[i].number){
+            slot1.push(hand[i].number);
+            hand.splice([i],1);
+            i=i-1;
+            console.log(hand);
+        }
+        console.log("slot1");
 
+        console.log(slot1);
+    };}
 
+    if(hand.length!=0){
+    slot2.push(hand[0].number);
+    console.log(slot2);
+    hand.splice(0,1);
+    for(var i = 0 ; i <= hand.length-1;i++){
+        if(slot2[0]===hand[i].number){
+            slot2.push(hand[i].number);
+            hand.splice([i],1);
+            i=i-1;
+            console.log(hand);
+        }
+        console.log("slot2");
+
+        console.log(slot2);
+    };}
+
+    if(hand.length!=0){
+    slot3.push(hand[0].number);
+    hand.splice(0,1);
+    for(var i = 0 ; i <= hand.length-1;i++){
+        if(slot3[0]===hand[i].number){
+            slot3.push(hand[i].number);
+            hand.splice([i],1);
+            i=i-1;
+            console.log(hand);
+        }
+        console.log("slot3");
+
+        console.log(slot3);
+    };}
+
+    if(hand.length!=0){
+    slot4.push(hand[0].number);
+    hand.splice(0,1);
+    for(var i = 0 ; i <= hand.length-1;i++){
+        if(slot4[0]===hand[i].number){
+            slot4.push(hand[i].number);
+            hand.splice([i],1);
+            i=i-1;
+            console.log(hand);
+        }
+        console.log("slot4");
+
+        console.log(slot4);
+    };}
+    var countPiles =[slot0.length,slot1.length,slot2.length,slot3.length,slot4.length,];
+    console.log(countPiles.sort().reverse());
+    // console.log(countPilesSorted);
 };
 
 //Check for FourOfAKind
@@ -110,10 +164,13 @@ function checkAllCombos(hand){
 
 function checkResult(hand){
     var sortedHand = hand.sort(sortNumber)
-    var handIs = checkAllCombos(sortedHand);
-console.log(handIs);
-    var score = compareScore(handIs);
-    console.log(score);
+    console.log(hand);
+    numberPiles(testHand);
+
+//     var handIs = checkAllCombos(sortedHand);
+// console.log(handIs);
+//     var score = compareScore(handIs);
+//     console.log(score);
     };
 
 // These functions are used for various reasons
