@@ -10,7 +10,8 @@ if(rounds<1){dealCard(computerHand,"computerHand");
     dealCard(playerHand,"playerHand");};
         if (rounds>2){
         removeButton();
-        setTimeout(function(){revealCards();checkResult(computerHand);},1000);
+        setTimeout(function(){revealCards();console.log("Computer got: ");checkResult(computerHand);},1000);
+        console.log("Player got:");
         checkResult(playerHand);
 
 
