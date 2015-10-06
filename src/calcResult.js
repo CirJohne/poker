@@ -1,9 +1,9 @@
 // GÖR SÅ HAND ALLTID ÄR SORTED, TA BORT tempHand
 var testHand = [
     {type: "hearts", number: 14, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
-    {type: "hearts", number: 3, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
-    {type: "hearts", number: 7, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 2, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "hearts", number: 14, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
+    {type: "hearts", number: 14, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
+    {type: "hearts", number: 14, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
     {type: "clubs", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
@@ -31,6 +31,20 @@ function straightFlush(hand){
     }
 };
 
+//Check for FourOfAKind
+function fourOfAKind(hand){
+    console.log("enter fourOfAKind");
+    var temp = numberPiles(hand);
+    console.log(temp);
+    if(temp[0]===4){
+        console.log("enter if");
+        emptyHand(hand);
+        console.log(hand.length);
+        return "FourOfAKind"
+
+    }
+};
+
 //Check for Flush
 function flush(hand){
     var type = sameType(hand);
@@ -52,6 +66,12 @@ function straight(hand){
     }
 };
 
+//Check for FullHouse
+//Check for ThreeOfAKind
+
+//Check for TwoPairs
+
+//Check for OnePair
 
 
 //create arrays with cards by same type
@@ -70,16 +90,9 @@ function numberPiles(hand){
 
     var countPiles =[slot0.length,slot1.length,slot2.length,slot3.length,slot4.length,];
     console.log(countPiles.sort().reverse());
+    return countPiles.sort().reverse();
     // console.log(countPilesSorted);
 };
-
-//Check for FourOfAKind
-//Check for FullHouse
-//Check for ThreeOfAKind
-
-//Check for TwoPairs
-
-//Check for OnePair
 
 
 // Wrapper for checking all results
@@ -88,25 +101,30 @@ function checkAllCombos(hand){
     var temp = royalStraightFlush(hand);
     if(temp!==undefined){return temp};
     console.log("not royal");
-    temp= straightFlush(hand);
+
+    temp = straightFlush(hand);
     if(temp!==undefined){return temp};
-    console.log("not straightFlush")
-    temp= flush(hand);
+    console.log("not straightFlush");
+
+    temp = fourOfAKind(hand);
+    if(temp!==undefined){return temp};
+    console.log("not FourOfAKind");
+
+    temp = flush(hand);
     if(temp!==undefined){return temp};
     console.log("not Flush")
-    temp= straight(hand);
+
+    temp = straight(hand);
     if(temp!==undefined){return temp};
+    console.log("not Straight");
 };
 
 function checkResult(hand){
     var sortedHand = hand.sort(sortNumber)
-    console.log(hand);
-    numberPiles(testHand);
-
-//     var handIs = checkAllCombos(sortedHand);
-// console.log(handIs);
-//     var score = compareScore(handIs);
-//     console.log(score);
+    var handIs = checkAllCombos(sortedHand);
+    console.log(handIs);
+    var score = compareScore(handIs);
+    console.log(score);
     };
 
 // These functions are used for various reasons
