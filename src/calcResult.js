@@ -3,8 +3,8 @@ var testHand = [
     {type: "hearts", number: 14, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
     {type: "hearts", number: 14, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
     {type: "hearts", number: 14, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-    {type: "hearts", number: 3, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-    {type: "hearts", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+    {type: "hearts", number: 2, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "clubs", number: 3, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
 ];
 
 // Fire it off!
@@ -42,16 +42,10 @@ function fourOfAKind(hand){
 };
 //Check for FullHouse
 function fullHouse(hand){
-    console.log("enter fullHouse");
-    console.log(hand);
     var temp = numberPiles(hand);
-    console.log(temp);
     if(temp[0]===3 && temp[1]===2){
-        console.log("enter if");
         emptyHand(hand);
-        console.log(hand.length);
         return "FullHouse"
-
     }
 };
 
@@ -77,19 +71,19 @@ function straight(hand){
 };
 
 //Check for ThreeOfAKind
-// function threeOfAKind(hand){
-//     console.log("enter fullHouse");
-//     console.log(hand);
-//     var temp = numberPiles(hand);
-//     console.log(temp);
-//     if(temp[0]===3 && temp[1]===2){
-//         console.log("enter if");
-//         emptyHand(hand);
-//         console.log(hand.length);
-//         return "FullHouse"
-//
-//     }
-// };
+function threeOfAKind(hand){
+    console.log("enter threeOfAKind");
+    console.log(hand);
+    var temp = numberPiles(hand);
+    console.log(temp);
+    if(temp[0]===3 && temp[1]===1){
+        console.log("enter if");
+        emptyHand(hand);
+        console.log(hand.length);
+        return "ThreeOfAKind"
+
+    }
+};
 
 //Check for TwoPairs
 
@@ -146,6 +140,10 @@ function checkAllCombos(hand){
     temp = straight(hand);
     if(temp!==undefined){return temp};
     console.log("not Straight");
+
+    temp = threeOfAKind(hand);
+    if(temp!==undefined){return temp};
+    console.log("not ThreeOfAKind");
 };
 
 function checkResult(hand){
