@@ -1,11 +1,11 @@
-// var testHand = [
-//     {type: "hearts", number: 3, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
-//     {type: "hearts", number: 10, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
-//     {type: "hearts", number: 11, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
-//     {type: "hearts", number: 12, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
-//     {type: "hearts", number: 14, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
-// ];
-// checkResult(testHand);
+var testHand = [
+    {type: "hearts", number: 9, src: "img/hearts/aceHearts.jpg", id: "aceHearts"},
+    {type: "hearts", number: 10, src: "img/hearts/tenHearts.jpg", id: "tenHearts"},
+    {type: "hearts", number: 11, src: "img/hearts/jackHearts.jpg", id: "jackHearts"},
+    {type: "hearts", number: 12, src: "img/hearts/queenHearts.jpg", id: "queenHearts"},
+    {type: "hearts", number: 13, src: "img/hearts/kingHearts.jpg", id: "kingHearts"}
+];
+checkResult(testHand);
 
 
 //Check for RoyalStraightFlush
@@ -13,7 +13,6 @@ function royalStraightFlush(hand){
     var type = sameType(hand);
     var x = hand[0].number+hand[1].number+hand[2].number+hand[3].number+hand[4].number;
     if(type===true && x===60){
-        emptyHand(hand);
                 return "RoyalStraightFlush";
     }
 };
@@ -24,7 +23,6 @@ function straightFlush(hand){
     var isStraightVar = isStraight(hand);
 // MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
     if(type===true && isStraightVar===true){
-            emptyHand(hand);
                 return "StraightFlush";
     }
 };
@@ -33,7 +31,6 @@ function straightFlush(hand){
 function fourOfAKind(hand){
     var temp = numberPiles(hand);
     if(temp[0]===4){
-        emptyHand(hand);
         return "FourOfAKind"
     }
 };
@@ -41,7 +38,6 @@ function fourOfAKind(hand){
 function fullHouse(hand){
     var temp = numberPiles(hand);
     if(temp[0]===3 && temp[1]===2){
-        emptyHand(hand);
         return "FullHouse"
     }
 };
@@ -51,7 +47,6 @@ function flush(hand){
     var type = sameType(hand);
 // MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
     if(type===true){
-            emptyHand(hand);
                 return "Flush";
     }
 };
@@ -61,7 +56,6 @@ function straight(hand){
      var isStraightVar = isStraight(hand);
 // MÅSTE ÄNDRA SÅ ATT JAG KAN KONTROLLERA HÖGSTA NUMMER INNAN SPLICE
     if(isStraightVar===true){
-            emptyHand(hand);
                 return "Straight";
     }
 };
@@ -70,7 +64,6 @@ function straight(hand){
 function threeOfAKind(hand){
     var temp = numberPiles(hand);
     if(temp[0]===3 && temp[1]===1){
-        emptyHand(hand);
         return "ThreeOfAKind"
     }
 };
@@ -79,7 +72,6 @@ function threeOfAKind(hand){
 function twoPairs(hand){
     var temp = numberPiles(hand);
     if(temp[0]===2 && temp[1]===2){
-        emptyHand(hand);
         return "TwoPairs"
     }
 };
@@ -88,7 +80,6 @@ function twoPairs(hand){
 function onePair(hand){
     var temp = numberPiles(hand);
     if(temp[0]===2 && temp[1]===1){
-        emptyHand(hand);
         return "OnePair"
     }
     return "Nothing";
