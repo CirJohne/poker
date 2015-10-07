@@ -191,11 +191,6 @@ function compareScore(handIs){
     };
 };
 
-// Empty hand after finding a combination, to assert not looking for further results
-//FIXA SÅ ATT HÖGSTA NUMMER GÅR ATT LÄSA UT
-function emptyHand(hand){
-    hand.splice(0,5);
-};
 
 //makePileBySlot looks at the first slot of the hand and then compars with rest of hand. If there's a card with same nummer it puts them in pile(own array)
 function makePileBySlot(slot,hand){
